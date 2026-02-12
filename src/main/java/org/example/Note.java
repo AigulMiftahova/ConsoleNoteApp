@@ -3,19 +3,25 @@ package org.example;
 import java.time.LocalDateTime;
 
 public class Note {
+    private final int id;
     private String title;
     private LocalDateTime date;
     private String description;
 
-    //конструкторы
-    Note() {}
-    Note(String title, LocalDateTime date, String description) {
+    //конструктор
+    Note(int id, String title, LocalDateTime date, String description) {
+        this.id = id;
         this.title = title;
         this.date = date;
         this.description = description;
+
     }
 
     //геттеры и сеттеры
+    public int getId() {
+        return this.id;
+    }
+
     public String getTitle() {
         return this.title;
     }
@@ -25,9 +31,6 @@ public class Note {
 
     public LocalDateTime getDate() {
         return this.date;
-    }
-    public void setDate(LocalDateTime date) {
-        this.date = date;
     }
 
     public String getDescription() {
