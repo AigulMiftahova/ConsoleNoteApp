@@ -9,13 +9,19 @@ public class NoteService {
 
     private int nextId = 1;
 
-    public void addNote(String title, LocalDateTime date, String description) {
-        notes.add(new Note(nextId, title, date, description));
+    //геттер для списка заметок
+    public List<Note> getAllNotes() {
+        return new ArrayList<>(notes);
+    }
+
+    //Функции для добавления и удаления заметок
+    public void addNote(String title, String body) {
+        notes.add(new Note(nextId, title, LocalDateTime.now(), body));
         nextId++;
+        System.out.println("Заметка добавлена!");
     }
-
-    public void deleteNote(Note note) {
-        notes.remove(note);
+    public void deleteNote(int id) {
+        notes.removeIf(note -> note.getId() == id);
+        System.out.println("Заметка удалена!");
     }
-
 }
